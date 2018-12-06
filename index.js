@@ -590,7 +590,7 @@ source += '\
             }\
             \
             /* Try inlined modules */\
-            var module = __LOOK_FOR_FILE__(relPath) || __LOOK_FOR_FILE__(relPath + \'.js\') || __LOOK_FOR_FILE__(relPath + \'.json\');\
+            var module = __LOOK_FOR_FILE__(relPath) || __LOOK_FOR_FILE__(relPath + \'.js\') || __LOOK_FOR_FILE__(relPath + Path.sep + \'index.js\') || __LOOK_FOR_FILE__(relPath + \'.json\');\
             if (module) return module();\
             \
             /* Try original `require` with transformed path */\

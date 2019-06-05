@@ -2,7 +2,7 @@
 
 var Fs = require('fs'),
     Path = require('path'),
-    UglifyJS = require('uglify-js');
+    UglifyJS = require('uglify-es');
 
 /**
  * Checks if a path exists and is a file (not a directory), without throwing any error
@@ -590,7 +590,7 @@ source += '\
             }\
             \
             /* Try inlined modules */\
-            var module = __LOOK_FOR_FILE__(relPath) || __LOOK_FOR_FILE__(relPath + \'.js\') || __LOOK_FOR_FILE__(relPath + Path.sep + \'index.js\') || __LOOK_FOR_FILE__(relPath + \'.json\');\
+            var module = __LOOK_FOR_FILE__(relPath) || __LOOK_FOR_FILE__(relPath + \'.js\') || __LOOK_FOR_FILE__(relPath + \'/index.js\') || __LOOK_FOR_FILE__(relPath + \'.json\');\
             if (module) return module();\
             \
             /* Try original `require` with transformed path */\
